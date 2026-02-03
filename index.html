@@ -1085,8 +1085,22 @@
     });
 
     </script>
+    <script>
+    function toggleBachelor() {
+        const more = document.getElementById("b-more");
+        const btn = document.getElementById("b-readBtn");
+    
+        if (more.style.display === "none" || more.style.display === "") {
+            more.style.display = "block";
+            btn.innerText = "Read Less";
+        } else {
+            more.style.display = "none";
+            btn.innerText = "Read More";
+        }
+    }
+    </script>
 
-
+    
 
 </body>
 
