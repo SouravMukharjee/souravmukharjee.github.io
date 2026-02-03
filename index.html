@@ -99,31 +99,35 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 50px;  /* Circle size */
-        height: 50px; /* Circle size */
-        background: #020617; /* Very dark background */
-        border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle ring */
-        border-radius: 50%; /* Makes it a circle */
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        width: 55px;  /* Slightly larger for better presence */
+        height: 55px; 
+        background: rgba(255, 255, 255, 0.05); /* Semi-transparent dark glass */
+        border: 1px solid rgba(255, 255, 255, 0.2); /* Visible edge */
+        border-radius: 50%;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        backdrop-filter: blur(5px); /* Frosty glass effect */
     }
     
     #hero-socials a img {
-        width: 24px; /* Icon size inside the circle */
-        height: 24px;
-        filter: brightness(0) invert(1); /* Makes the icons pure white */
-        transition: transform 0.3s ease;
+        width: 26px;
+        height: 26px;
+        /* This line is the key: it makes colored logos PURE WHITE */
+        filter: brightness(0) invert(1); 
+        opacity: 0.9;
+        transition: all 0.3s ease;
     }
     
-    /* Hover Effects */
+    /* Hover State */
     #hero-socials a:hover {
-        background: #38bdf8; /* Brighter blue on hover */
-        transform: translateY(-5px);
+        background: #38bdf8;
         border-color: #38bdf8;
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
     }
     
     #hero-socials a:hover img {
-        filter: brightness(0); /* Makes icon black when background turns blue */
+        filter: brightness(0); /* Turns the icon black/dark when background turns blue */
+        opacity: 1;
         transform: scale(1.1);
     }
     /* 5. SECTIONS & CARDS */
