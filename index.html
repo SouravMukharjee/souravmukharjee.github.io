@@ -173,6 +173,26 @@
             background: #020617;
             font-size: 14px;
         }
+        .pub-card {
+          transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .pub-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+        .btn {
+          padding:4px 10px;
+          background:#38bdf8;
+          color:#111827;
+          border:none;
+          border-radius:5px;
+          cursor:pointer;
+          text-decoration:none;
+        }
+        .btn:hover {
+          background:#22c55e;
+          color:#fff;
+        }
     </style>
 </head>
 
@@ -286,6 +306,39 @@
             </div>
         </div>
 
+    </section>
+
+    <section id="publications" style="margin-top:60px;">
+    
+      <h2 style="text-align:center; margin-bottom:40px;">📚 Publications</h2>
+    
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:25px;">
+    
+        <!-- Publication Card -->
+        <div class="pub-card" style="padding:20px; border-radius:12px; background:#111827; color:#fff; opacity:0; transform:translateY(30px);">
+          <h3>Geopolitical shocks and carbon pricing: Do clean energy assets act as a hedge?</h3>
+          <p style="font-size:14px; color:#aaa;">Authors: Anupam Dutta, Sourav Mukharjee, Gazi Salah Uddin</p>
+          <p style="font-size:14px; color:#38bdf8;">
+            DOI: <a href="https://doi.org/10.1016/j.nexus.2025.100538" target="_blank" style="color:#38bdf8;">10.1016/j.nexus.2025.100538</a>
+          </p>
+    
+          <!-- Show More Overlay Button -->
+          <button class="btn" onclick="toggleAbstract(this)">Show More</button>
+    
+          <!-- Hidden Abstract -->
+          <div class="abstract" style="display:none; margin-top:10px; font-size:14px; color:#ccc;">
+            Full abstract or additional details of the article go here.
+          </div>
+    
+          <!-- Actions -->
+          <div style="margin-top:10px; display:flex; gap:10px; font-size:14px;">
+            <a href="#" class="btn">Add to Mendeley</a>
+            <a href="#" class="btn">Share</a>
+            <a href="#" class="btn">Cite</a>
+          </div>
+        </div>
+    
+      </div>
     </section>
 
     <section id="education">
@@ -1243,6 +1296,40 @@
         }, index * 300); // 300ms stagger between each icon
       });
     });
+    </script>
+    <script>
+        // Show/hide abstract
+        function toggleAbstract(button) {
+          const abstract = button.nextElementSibling;
+          if (abstract.style.display === "none") {
+            abstract.style.display = "block";
+            button.textContent = "Show Less";
+          } else {
+            abstract.style.display = "none";
+            button.textContent = "Show More";
+          }
+        }
+        
+        // Staggered fade-in animation on scroll
+        const pubCards = document.querySelectorAll(".pub-card");
+        function revealPublications() {
+          const triggerBottom = window.innerHeight * 0.85;
+        
+          pubCards.forEach((card, index) => {
+            const cardTop = card.getBoundingClientRect().top;
+            if (cardTop < triggerBottom && !card.classList.contains("fade-in")) {
+              setTimeout(() => {
+                card.style.opacity = 1;
+                card.style.transform = "translateY(0)";
+                card.style.transition = "all 0.6s ease";
+                card.classList.add("fade-in");
+              }, index * 200); // stagger 200ms
+            }
+          });
+        }
+        
+        window.addEventListener("scroll", revealPublications);
+        window.addEventListener("load", revealPublications);
     </script>
 
 
