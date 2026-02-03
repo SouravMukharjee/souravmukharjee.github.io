@@ -91,36 +91,41 @@
     #hero-socials {
         display: flex;
         justify-content: center;
-        gap: 30px;
-        margin-top: 30px;
-        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 35px;
     }
-
+    
     #hero-socials a {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        text-decoration: none;
-        color: #cbd5e1;
-        font-size: 0.85rem;
-        transition: color 0.3s;
+        justify-content: center;
+        width: 50px;  /* Circle size */
+        height: 50px; /* Circle size */
+        background: #020617; /* Very dark background */
+        border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle ring */
+        border-radius: 50%; /* Makes it a circle */
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
-
+    
     #hero-socials a img {
-        width: 32px; /* Fixed massive icon issue */
-        height: 32px;
-        margin-bottom: 8px;
-        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        width: 24px; /* Icon size inside the circle */
+        height: 24px;
+        filter: brightness(0) invert(1); /* Makes the icons pure white */
+        transition: transform 0.3s ease;
     }
-
-    #hero-socials a:hover img {
-        transform: scale(1.2) rotate(10deg);
-    }
-
+    
+    /* Hover Effects */
     #hero-socials a:hover {
-        color: #38bdf8;
+        background: #38bdf8; /* Brighter blue on hover */
+        transform: translateY(-5px);
+        border-color: #38bdf8;
     }
-
+    
+    #hero-socials a:hover img {
+        filter: brightness(0); /* Makes icon black when background turns blue */
+        transform: scale(1.1);
+    }
     /* 5. SECTIONS & CARDS */
     section {
         max-width: 1000px;
