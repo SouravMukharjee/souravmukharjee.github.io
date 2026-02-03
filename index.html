@@ -75,6 +75,49 @@
         .hero .btn:hover {
             background: #0ea5e9;
         }
+        #projects .card {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.6s ease;
+          border-radius: 12px;
+          background: #111827;
+          color: #fff;
+          overflow: hidden;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        #projects .card img {
+          transition: transform 0.4s ease;
+          border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        #projects .card:hover img {
+          transform: scale(1.05);
+        }
+        
+        #projects .card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+        
+        /* Fade-in + slide animation */
+        .fade-in-left {
+          opacity: 1 !important;
+          transform: translateY(0) translateX(0) !important;
+        }
+        
+        .fade-in-right {
+          opacity: 1 !important;
+          transform: translateY(0) translateX(0) !important;
+        }
+        #hero-socials a:hover img {
+              transform: scale(1.2) rotate(10deg);
+            }
+            
+        .fade-in-social {
+              opacity: 1 !important;
+              transition: all 0.6s ease;
+            }
         .cursor {
             display: inline-block;
             background-color: #38bdf8;
@@ -211,46 +254,38 @@
             </div>
         </nav>
     </header>
-
-    <div class="hero" id="home">
+<!-- HERO SECTION -->
+    <div class="hero" id="home" style="text-align:center; padding:80px 20px; color:#fff; background:#111827;">
+    
         <h1>Hi, I am Sourav Mukharjee</h1>
         <h2>A Doctoral Researcher</h2>
         <h3 id="animated-text"></h3>
-        <p>
+    
+        <p style="margin-top:20px;">
             <a class="btn" href="https://souravfin.wordpress.com/wp-content/uploads/2025/09/souravmukharjeecv-1.pdf" target="_blank">Download Resume</a>
         </p>
+    
+        <!-- SOCIAL ICONS -->
+        <div id="hero-socials" style="display:flex; justify-content:center; gap:25px; margin-top:25px;">
+            <!-- Email -->
+            <a href="mailto:souravmu@uwasa.fi" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+                <span>Email</span>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/sourav.mukharjee.71" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+                <span>Facebook</span>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/sourav-mukharjee" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+                <span>LinkedIn</span>
+            </a>
         </div>
-        <!-- Social / Contact Logos with Fade-in Animation -->
-        <div id="hero-socials" style="display:flex; justify-content:center; gap:25px; margin-top:20px; opacity:0; transition: opacity 1s ease;">
-          
-          <!-- Email -->
-          <a href="mailto:souravmu@uwasa.fi" target="_blank" 
-             style="text-decoration:none; display:flex; flex-direction:column; align-items:center; color:#fff; transition: transform 0.3s;">
-            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" 
-                 alt="Email" 
-                 style="width:40px; height:40px; filter:invert(1); transition: transform 0.3s;">
-            <span style="font-size:12px; margin-top:5px;">Email</span>
-          </a>
-        
-          <!-- Facebook -->
-          <a href="https://www.facebook.com/sourav.mukharjee.71" target="_blank" 
-             style="text-decoration:none; display:flex; flex-direction:column; align-items:center; color:#fff; transition: transform 0.3s;">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" 
-                 alt="Facebook" 
-                 style="width:40px; height:40px; filter:invert(1); transition: transform 0.3s;">
-            <span style="font-size:12px; margin-top:5px;">Facebook</span>
-          </a>
-        
-          <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/in/sourav-mukharjee" target="_blank" 
-             style="text-decoration:none; display:flex; flex-direction:column; align-items:center; color:#fff; transition: transform 0.3s;">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
-                 alt="LinkedIn" 
-                 style="width:40px; height:40px; filter:invert(1); transition: transform 0.3s;">
-            <span style="font-size:12px; margin-top:5px;">LinkedIn</span>
-          </a>
-        
-        </div>
+    
+    </div>
+
     <section id="research">
         <h2>🔍 Research & Doctoral Work</h2>
         <p class="research-p">
@@ -1214,52 +1249,6 @@
         }
     }
     </script>
-
-    <style>
-    #projects .card {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
-      border-radius: 12px;
-      background: #111827;
-      color: #fff;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    
-    #projects .card img {
-      transition: transform 0.4s ease;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    #projects .card:hover img {
-      transform: scale(1.05);
-    }
-    
-    #projects .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-    }
-    
-    /* Fade-in + slide animation */
-    .fade-in-left {
-      opacity: 1 !important;
-      transform: translateY(0) translateX(0) !important;
-    }
-    
-    .fade-in-right {
-      opacity: 1 !important;
-      transform: translateY(0) translateX(0) !important;
-    }
-    #hero-socials a:hover img {
-          transform: scale(1.2) rotate(10deg);
-        }
-        
-    .fade-in-social {
-          opacity: 1 !important;
-          transition: all 0.6s ease;
-        }
-    </style>
 
     <script>
     const cards = document.querySelectorAll("#projects .card");
