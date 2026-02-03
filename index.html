@@ -1151,7 +1151,6 @@
     </script>
 
     <style>
-    /* Fade-in from bottom + hover lift */
     #projects .card {
       opacity: 0;
       transform: translateY(30px);
@@ -1177,30 +1176,43 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.5);
     }
     
-    /* Fade in when in viewport */
-    .fade-in {
+    /* Fade-in + slide animation */
+    .fade-in-left {
       opacity: 1 !important;
-      transform: translateY(0) !important;
+      transform: translateY(0) translateX(0) !important;
+    }
+    
+    .fade-in-right {
+      opacity: 1 !important;
+      transform: translateY(0) translateX(0) !important;
     }
     </style>
-    
-        <script>
+
+    <script>
     const cards = document.querySelectorAll("#projects .card");
     
-    function revealCards() {
+    function revealCardsStaggeredSlide() {
       const triggerBottom = window.innerHeight * 0.85;
     
-      cards.forEach(card => {
+      cards.forEach((card, index) => {
         const cardTop = card.getBoundingClientRect().top;
-        if (cardTop < triggerBottom) {
-          card.classList.add("fade-in");
+    
+        if (cardTop < triggerBottom && !card.classList.contains("fade-in-left") && !card.classList.contains("fade-in-right")) {
+          
+          // Add a slight offset left/right before fading in
+          card.style.transform = index % 2 === 0 
+            ? "translateY(30px) translateX(-50px)" 
+            : "translateY(30px) translateX(50px)";
+    
+          setTimeout(() => {
+            card.classList.add(index % 2 === 0 ? "fade-in-left" : "fade-in-right");
+          }, index * 150); // 150ms stagger
         }
       });
     }
     
-    // Initial check + scroll listener
-    window.addEventListener("scroll", revealCards);
-    window.addEventListener("load", revealCards);
+    window.addEventListener("scroll", revealCardsStaggeredSlide);
+    window.addEventListener("load", revealCardsStaggeredSlide);
     </script>
 
 
