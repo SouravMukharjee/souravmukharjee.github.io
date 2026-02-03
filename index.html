@@ -1,355 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <title>Sourav Mukharjee | Portfolio</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
-    <style>
-
-        /* Reset & Body */
-
-        body {
-
-            margin: 0;
-
-            font-family: 'Segoe UI', Arial, sans-serif;
-
-            background: #0f172a;
-
-            color: #e5e7eb;
-
-            scroll-behavior: smooth;
-
-        }
-
-
-
-        /* Header & Navigation */
-
-        header {
-
-            background: #020617;
-
-            padding: 15px 25px;
-
-            position: sticky;
-
-            top: 0;
-
-            z-index: 1000;
-
-        }
-
-
-
-        nav {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            flex-wrap: wrap;
-
-        }
-
-
-
-        nav a {
-
-            color: #93c5fd;
-
-            margin: 6px 10px;
-
-            text-decoration: none;
-
-            font-weight: 600;
-
-        }
-
-
-
-        nav a:hover {
-
-            color: #38bdf8;
-
-        }
-
-
-
-        /* Hero Section */
-
-        .hero {
-
-            text-align: center;
-
-            padding: 120px 20px;
-
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-
-                              url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1950&q=80');
-
-            background-size: cover;
-
-            background-position: center;
-
-            background-repeat: no-repeat;
-
-            position: relative;
-
-        }
-
-
-
-        .hero h1, .hero h2, .hero h3 {
-
-            color: #ffffff;
-
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-
-            margin: 10px 0;
-
-        }
-
-
-
-        .hero .btn {
-
-            background: #38bdf8;
-
-            color: #020617;
-
-            padding: 10px 18px;
-
-            border-radius: 8px;
-
-            text-decoration: none;
-
-            font-weight: bold;
-
-            margin: 10px 5px;
-
-            cursor: pointer;
-
-            border: none;
-
-            display: inline-block;
-
-        }
-
-
-
-        .hero .btn:hover {
-
-            background: #0ea5e9;
-
-        }
-
-
-
-        /* Typed Cursor */
-
-        .cursor {
-
-            display: inline-block;
-
-            background-color: #38bdf8;
-
-            width: 2px;
-
-            height: 1em;
-
-            vertical-align: middle;
-
-            animation: blink 0.7s infinite;
-
-            margin-left: 2px;
-
-        }
-
-
-
-        @keyframes blink {
-
-            0%, 50%, 100% { opacity: 1; }
-
-            25%, 75% { opacity: 0; }
-
-        }
-
-
-
-        /* Sections */
-
-        section {
-
-            max-width: 1000px;
-
-            margin: auto;
-
-            padding: 60px 20px;
-
-        }
-
-
-
-        h2 {
-
-            color: #38bdf8;
-
-            border-bottom: 2px solid #1e293b;
-
-            padding-bottom: 10px;
-
-        }
-
-
-
-        .card {
-
-            background: #020617;
-
-            padding: 20px;
-
-            border-radius: 12px;
-
-            margin: 15px 0;
-
-        }
-
-
-
-        .btn {
-
-            background: #38bdf8;
-
-            color: #020617;
-
-            padding: 8px 15px;
-
-            border-radius: 6px;
-
-            border: none;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-            transition: 0.3s;
-
-        }
-
-
-
-        .btn:hover {
-
-            background: #0ea5e9;
-
-        }
-
-
-
-        /* Research Styling */
-
-        #more, #m-more {
-
-            display: none; /* Hidden by default */
-
-        }
-
-
-
-        .research-p {
-
-            line-height: 1.7;
-
-            font-size: 1.05rem;
-
-        }
-
-
-
-        /* Topics / Interests */
-
-        .topic {
-
-            flex: 1;
-
-            min-width: 160px;
-
-            max-width: 200px;
-
-            text-align: center;
-
-            padding: 15px;
-
-            background: rgba(30, 41, 59, 0.5);
-
-            border-radius: 12px;
-
-            color: #f8fafc;
-
-            font-size: 0.9rem;
-
-            opacity: 0;
-
-            transform: translateY(20px);
-
-            transition: all 0.7s ease-out;
-
-        }
-
-
-
-        .topic.visible {
-
-            opacity: 1;
-
-            transform: translateY(0);
-
-        }
-
-
-
-        .topic:hover {
-
-            transform: scale(1.05);
-
-            background: #1e293b;
-
-        }
-
-
-
-        footer {
-
-            text-align: center;
-
-            padding: 40px 20px;
-
-            background: #020617;
-
-            font-size: 14px;
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<title>Sourav Mukharjee | Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:#0f172a;
+  color:#e5e7eb;
+  scroll-behavior:smooth;
+}
+
+header{background:#020617;padding:15px 25px;position:sticky;top:0;z-index:1000;}
+nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+nav a{color:#93c5fd;margin:6px 10px;text-decoration:none;font-weight:600;}
+nav a:hover{color:#38bdf8;}
+
+.hero{
+  text-align:center;
+  padding:120px 20px;
+  background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+  url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1950&q=80');
+  background-size:cover;
+  background-position:center;
+}
+
+.hero h1,.hero h2,.hero h3{color:#fff;text-shadow:1px 1px 5px rgba(0,0,0,0.7);margin:10px 0;}
+
+section{max-width:1000px;margin:auto;padding:60px 20px;}
+h2{color:#38bdf8;border-bottom:2px solid #1e293b;padding-bottom:10px;}
+
+.card{background:#020617;padding:20px;border-radius:12px;margin:15px 0;}
+
+.btn{
+  background:#38bdf8;
+  color:#020617;
+  padding:8px 15px;
+  border-radius:6px;
+  border:none;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+#more{display:none;}   /* <-- REQUIRED */
+.research-p{line-height:1.7;font-size:1.05rem;}
+</style>
 </head>
 
+<body>
+
+<section id="research">
+<h2>🔍 Research & Doctoral Work</h2>
+
+<p class="research-p">
+<strong>👋 Greetings!</strong> I am a data engineer and doctoral researcher specializing in financial technology and machine learning applications, specifically focused on sustainable business growth optimizations and economic forecasting.
+<span id="dots">...</span>
+<span id="more">
+Currently pursuing a <strong>Doctor of Science (D.Sc.)</strong> in Economics and Business Administration at the University of Vaasa, my research leverages machine learning and statistical analysis to enhance decision-making efficiency in financial and industrial operations.
+<br><br>
+With a 🎓 Master’s in Industrial Systems Analytics and a 💻 Bachelor’s in Computer Science & Engineering, I bridge theory and practice.
+<br><br>
+<strong>🔷 My Vision</strong>
+<ul>
+<li>Data-driven sustainability</li>
+<li>FinTech & Ethical AI</li>
+<li>Industry-academia bridge</li>
+</ul>
+</span>
+</p>
+
+<button id="readBtn" class="btn">Read More</button>
+</section>
+
+<!-- SCRIPT MUST BE HERE -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const btn = document.getElementById("readBtn");
   const dots = document.getElementById("dots");
   const more = document.getElementById("more");
+
+  if(!btn || !dots || !more){
+    console.error("Read More elements missing");
+    return;
+  }
 
   btn.addEventListener("click", function () {
     if (more.style.display === "inline") {
@@ -364,7 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
-
 
 <body>
 
