@@ -345,6 +345,25 @@
 
 </head>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("readBtn");
+  const dots = document.getElementById("dots");
+  const more = document.getElementById("more");
+
+  btn.addEventListener("click", function () {
+    if (more.style.display === "inline") {
+      more.style.display = "none";
+      dots.style.display = "inline";
+      btn.textContent = "Read More";
+    } else {
+      more.style.display = "inline";
+      dots.style.display = "none";
+      btn.textContent = "Read Less";
+    }
+  });
+});
+</script>
 
 
 <body>
