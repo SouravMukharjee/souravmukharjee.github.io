@@ -6,237 +6,216 @@
     <title>Sourav Mukharjee | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #0f172a;
-            color: #e5e7eb;
-            scroll-behavior: smooth;
-        }
+<style>
+    /* 1. BASE STYLES */
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: #0f172a;
+        color: #e5e7eb;
+        scroll-behavior: smooth;
+        line-height: 1.6;
+    }
 
-        header {
-            background: #020617;
-            padding: 15px 25px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    header {
+        background: #020617;
+        padding: 15px 25px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
 
-        nav a {
-            color: #93c5fd;
-            margin: 6px 10px;
-            text-decoration: none;
-            font-weight: 600;
-        }
+    nav a {
+        color: #93c5fd;
+        margin: 6px 10px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s;
+    }
 
-        nav a:hover {
-            color: #38bdf8;
-        }
+    nav a:hover {
+        color: #38bdf8;
+    }
 
-        .hero {
-            text-align: center;
-            padding: 120px 20px;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+    /* 2. HERO SECTION (REFACTORED) */
+    .hero {
+        text-align: center;
+        padding: 100px 20px;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+            url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1950&q=80');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-        .hero h1,
-        .hero h2,
-        .hero h3 {
-            color: #ffffff;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-            margin: 10px 0;
-        }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 10px 0; }
+    .hero h2 { font-size: clamp(1.2rem, 3vw, 1.8rem); color: #94a3b8; }
+    
+    .hero h1, .hero h2, .hero h3 {
+        color: #ffffff;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    }
 
-        .hero .btn {
-            background: #38bdf8;
-            color: #020617;
-            padding: 10px 18px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 10px 5px;
-            cursor: pointer;
-            border: none;
-            display: inline-block;
-        }
+    /* 3. BUTTONS */
+    .btn {
+        background: #38bdf8;
+        color: #020617;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+    }
 
-        .hero .btn:hover {
-            background: #0ea5e9;
-        }
-        #projects .card {
-          opacity: 0;
-          transform: translateY(30px);
-          transition: all 0.6s ease;
-          border-radius: 12px;
-          background: #111827;
-          color: #fff;
-          overflow: hidden;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-        
-        #projects .card img {
-          transition: transform 0.4s ease;
-          border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        #projects .card:hover img {
-          transform: scale(1.05);
-        }
-        
-        #projects .card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-        }
-        
-        /* Fade-in + slide animation */
-        .fade-in-left {
-          opacity: 1 !important;
-          transform: translateY(0) translateX(0) !important;
-        }
-        
-        .fade-in-right {
-          opacity: 1 !important;
-          transform: translateY(0) translateX(0) !important;
-        }
-        #hero-socials a:hover img {
-              transform: scale(1.2) rotate(10deg);
-            }
-            
-        .fade-in-social {
-              opacity: 1 !important;
-              transition: all 0.6s ease;
-            }
-        .cursor {
-            display: inline-block;
-            background-color: #38bdf8;
-            width: 2px;
-            height: 1em;
-            vertical-align: middle;
-            animation: blink 0.7s infinite;
-            margin-left: 2px;
-        }
+    .btn:hover {
+        background: #22c55e;
+        color: #fff;
+        transform: translateY(-2px);
+    }
 
-        @keyframes blink {
-            0%,
-            50%,
-            100% {
-                opacity: 1;
-            }
+    /* 4. HERO SOCIAL ICONS (THE FIX) */
+    #hero-socials {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+    }
 
-            25%,
-            75% {
-                opacity: 0;
-            }
-        }
+    #hero-socials a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: #cbd5e1;
+        font-size: 0.85rem;
+        transition: color 0.3s;
+    }
 
-        section {
-            max-width: 1000px;
-            margin: auto;
-            padding: 60px 20px;
-        }
+    #hero-socials a img {
+        width: 32px; /* Fixed massive icon issue */
+        height: 32px;
+        margin-bottom: 8px;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
 
-        h2 {
-            color: #38bdf8;
-            border-bottom: 2px solid #1e293b;
-            padding-bottom: 10px;
-        }
+    #hero-socials a:hover img {
+        transform: scale(1.2) rotate(10deg);
+    }
 
-        .card {
-            background: #020617;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 15px 0;
-        }
+    #hero-socials a:hover {
+        color: #38bdf8;
+    }
 
-        .btn {
-            background: #38bdf8;
-            color: #020617;
-            padding: 8px 15px;
-            border-radius: 6px;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+    /* 5. SECTIONS & CARDS */
+    section {
+        max-width: 1000px;
+        margin: auto;
+        padding: 80px 20px;
+    }
 
-        .btn:hover {
-            background: #0ea5e9;
-        }
+    h2 {
+        color: #38bdf8;
+        border-bottom: 2px solid #1e293b;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+    }
 
-        #more,
-        #m-more {
-            display: none;
-        }
+    .card {
+        background: #111827;
+        padding: 25px;
+        border-radius: 12px;
+        margin: 20px 0;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
 
-        .research-p {
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
+    /* 6. SKILLS & TOPICS */
+    .topics-container, .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 20px;
+    }
 
-        .topic {
-            flex: 1;
-            min-width: 160px;
-            max-width: 200px;
-            text-align: center;
-            padding: 15px;
-            background: rgba(30, 41, 59, 0.5);
-            border-radius: 12px;
-            color: #f8fafc;
-            font-size: 0.9rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.7s ease-out;
-        }
+    .topic {
+        flex: 1;
+        min-width: 140px;
+        max-width: 180px;
+        text-align: center;
+        padding: 20px 10px;
+        background: rgba(30, 41, 59, 0.5);
+        border-radius: 12px;
+        color: #f8fafc;
+        font-size: 0.9rem;
+        transition: all 0.4s ease;
+    }
 
-        .topic.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .topic img {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 10px;
+        object-fit: contain;
+    }
 
-        .topic:hover {
-            transform: scale(1.05);
-            background: #1e293b;
-        }
+    .topic:hover {
+        transform: translateY(-5px);
+        background: #1e293b;
+        box-shadow: 0 5px 15px rgba(56, 189, 248, 0.2);
+    }
 
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            background: #020617;
-            font-size: 14px;
-        }
-        .pub-card {
-          transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .pub-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-        }
-        .btn {
-          padding:4px 10px;
-          background:#38bdf8;
-          color:#111827;
-          border:none;
-          border-radius:5px;
-          cursor:pointer;
-          text-decoration:none;
-        }
-        .btn:hover {
-          background:#22c55e;
-          color:#fff;
-        }
-    </style>
+    /* 7. ANIMATIONS */
+    #projects .card {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+    }
+
+    .fade-in-left, .fade-in-right, .fade-in-social {
+        opacity: 1 !important;
+        transform: translate(0) !important;
+    }
+
+    .cursor {
+        display: inline-block;
+        background-color: #38bdf8;
+        width: 2px;
+        height: 1em;
+        vertical-align: middle;
+        animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+
+    /* 8. MOBILE RESPONSIVENESS */
+    @media (max-width: 768px) {
+        header { padding: 10px 15px; }
+        nav { justify-content: center; gap: 10px; }
+        .hero { padding: 60px 15px; }
+        section { padding: 40px 15px; }
+        #hero-socials { gap: 20px; }
+    }
+
+    /* Utility */
+    #more, #m-more, #b-more { display: none; }
+</style>
 </head>
 
 <body>
@@ -255,29 +234,29 @@
         </nav>
     </header>
 <!-- HERO SECTION -->
-    <div class="hero" id="home" style="text-align:center; padding:80px 20px; color:#fff; background:#111827;">
-    
+    <div class="hero" id="home">
+        
         <h1>Hi, I am Sourav Mukharjee</h1>
         <h2>A Doctoral Researcher</h2>
         <h3 id="animated-text"></h3>
     
-        <p style="margin-top:20px;">
-            <a class="btn" href="https://souravfin.wordpress.com/wp-content/uploads/2025/09/souravmukharjeecv-1.pdf" target="_blank">Download Resume</a>
-        </p>
+        <div style="margin-top: 25px;">
+            <a class="btn" href="https://souravfin.wordpress.com/wp-content/uploads/2025/09/souravmukharjeecv-1.pdf" target="_blank">
+                Download Resume
+            </a>
+        </div>
     
-        <!-- SOCIAL ICONS -->
-        <div id="hero-socials" style="display:flex; justify-content:center; gap:25px; margin-top:25px;">
-            <!-- Email -->
+        <div id="hero-socials">
             <a href="mailto:souravmu@uwasa.fi" target="_blank">
                 <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
                 <span>Email</span>
             </a>
-            <!-- Facebook -->
+    
             <a href="https://www.facebook.com/sourav.mukharjee.71" target="_blank">
                 <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
                 <span>Facebook</span>
             </a>
-            <!-- LinkedIn -->
+    
             <a href="https://www.linkedin.com/in/sourav-mukharjee" target="_blank">
                 <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
                 <span>LinkedIn</span>
