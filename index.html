@@ -340,31 +340,49 @@
 
     <section id="publications" style="margin-top:60px;">
     
-      <h2 style="text-align:center; margin-bottom:40px;">📚 Publications</h2>
+      <h2 style="text-align:left; margin-bottom:40px;">📚 Publications</h2>
     
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:25px;">
     
         <!-- Publication Card -->
-        <div class="pub-card" style="padding:20px; border-radius:12px; background:#111827; color:#fff; opacity:0; transform:translateY(30px);">
-          <h3>Geopolitical shocks and carbon pricing: Do clean energy assets act as a hedge?</h3>
-          <p style="font-size:14px; color:#aaa;">Authors: Anupam Dutta, Sourav Mukharjee, Gazi Salah Uddin</p>
-          <p style="font-size:14px; color:#38bdf8;">
-            DOI: <a href="https://doi.org/10.1016/j.nexus.2025.100538" target="_blank" style="color:#38bdf8;">10.1016/j.nexus.2025.100538</a>
-          </p>
+    <div class="pub-card" style="padding:20px; border-radius:12px; background:#111827; color:#fff; opacity:0; transform:translateY(30px);">
     
-          <!-- Show More Overlay Button -->
-          <button class="btn" onclick="toggleAbstract(this)">Keywords</button>
+      <h3>Geopolitical shocks and carbon pricing: Do clean energy assets act as a hedge?</h3>
     
-          <!-- Hidden Abstract -->
-          <div class="abstract" style="display:none; margin-top:10px; font-size:14px; color:#ccc;">
-            Geopolitical risk; Carbon markets; China; Regime switching; Sustainability; Hedging
-             <!-- Actions -->
-              <div style="margin-top:10px; display:flex; gap:10px; font-size:14px;">
-                <a href="Dutta, A., Mukharjee, S., & Uddin, G. S. (2025). Geopolitical shocks and carbon pricing: Do clean energy assets act as a hedge?. Energy Nexus, 100538." class="btn">Cite</a>
-              </div>
-          </div>
+      <p style="font-size:14px; color:#aaa;">
+        Authors: Anupam Dutta, Sourav Mukharjee, Gazi Salah Uddin
+      </p>
+    
+      <p style="font-size:14px; color:#38bdf8;">
+        DOI:
+        <a href="https://doi.org/10.1016/j.nexus.2025.100538"
+           target="_blank"
+           style="color:#38bdf8;">
+           10.1016/j.nexus.2025.100538
+        </a>
+      </p>
+    
+      <!-- ACTION BUTTONS -->
+      <div style="display:flex; gap:10px; margin-top:10px;">
+        <button class="btn" onclick="toggleAbstract(this)">Keywords</button>
+        <button class="btn" onclick="toggleCite(this)">Cite</button>
+      </div>
+    
+      <!-- KEYWORDS -->
+      <div class="abstract" style="display:none; margin-top:10px; font-size:14px; color:#ccc;">
+        <strong>Keywords:</strong><br>
+        Geopolitical risk; Carbon markets; China; Regime switching; Sustainability; Hedging
+      </div>
+    
+      <!-- APA CITE -->
+      <div class="citation" style="display:none; margin-top:10px; font-size:14px; color:#9ca3af; font-style:italic;">
+        Dutta, A., Mukharjee, S., & Uddin, G. S. (2025).
+        <em>Geopolitical shocks and carbon pricing: Do clean energy assets act as a hedge?</em>
+        Energy Nexus, 100538. https://doi.org/10.1016/j.nexus.2025.100538
+      </div>
+    
+    </div>
 
-        </div>
     
       </div>
     </section>
