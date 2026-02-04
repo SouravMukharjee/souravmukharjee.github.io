@@ -111,11 +111,11 @@
     #hero-socials a img {
         width: 26px;
         height: 26px;
-        /* This line is the key: it makes colored logos PURE WHITE */
-        filter: brightness(0) invert(1); 
-        opacity: 0.9;
+        filter: brightness(0);   /* makes icons dark */
+        opacity: 0.85;
         transition: all 0.3s ease;
     }
+
     
     /* Hover State */
     #hero-socials a:hover {
@@ -126,9 +126,9 @@
     }
     
     #hero-socials a:hover img {
-        filter: brightness(0); /* Turns the icon black/dark when background turns blue */
+        filter: brightness(0) invert(1); /* turn white on blue */
         opacity: 1;
-        transform: scale(1.1);
+        transform: scale(1.15);
     }
     /* 5. SECTIONS & CARDS */
     section {
