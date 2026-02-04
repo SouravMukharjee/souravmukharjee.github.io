@@ -186,6 +186,17 @@
         background: #1e293b;
         box-shadow: 0 5px 15px rgba(56, 189, 248, 0.2);
     }
+    /* initial hidden state for scroll animation */
+    .topic {
+      opacity: 0;
+      transform: translateY(25px) scale(0.95);
+    }
+    
+    /* when JS adds .visible */
+    .topic.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
 
     /* 7. ANIMATIONS */
     #projects .card {
