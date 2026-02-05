@@ -995,272 +995,198 @@
         
     </footer>
 
-
-
     <script>
-
     document.addEventListener("DOMContentLoaded", function () {
-
     
-
       // 1. Typed Effect
-
       const interests = [
-
         "Machine Learning in FinTech",
-
         "Sustainable Finance",
-
         "Cryptocurrency and Digital Asset",
-
         "AI in Data-Driven Decisions"
-
       ];
-
     
-
       const animatedText = document.getElementById("animated-text");
-
       if (!animatedText) return;
-
     
-
       let i = 0, j = 0, deleting = false;
-
     
-
       function typeEffect() {
-
         let current = interests[i];
-
     
-
         if (!deleting) {
-
           animatedText.innerHTML = current.substring(0, j + 1) + '<span class="cursor"></span>';
-
           j++;
-
           if (j === current.length) {
-
             deleting = true;
-
             setTimeout(typeEffect, 1500);
-
             return;
-
           }
-
         } else {
-
           animatedText.innerHTML = current.substring(0, j - 1) + '<span class="cursor"></span>';
-
           j--;
-
           if (j === 0) {
-
             deleting = false;
-
             i = (i + 1) % interests.length;
-
           }
-
         }
-
         setTimeout(typeEffect, deleting ? 50 : 100);
-
       }
-
-    
-
       typeEffect();
-
     
-
       // 2. Main Research Read More
-
       const readBtn = document.getElementById("readBtn");
-
       const dots = document.getElementById("dots");
-
       const moreText = document.getElementById("more");
-
     
-
       if (readBtn && dots && moreText) {
-
         readBtn.addEventListener("click", function () {
-
           if (moreText.style.display === "inline") {
-
             dots.style.display = "inline";
-
             moreText.style.display = "none";
-
             readBtn.innerText = "Read More";
-
           } else {
-
             dots.style.display = "none";
-
             moreText.style.display = "inline";
-
             readBtn.innerText = "Read Less";
-
           }
-
         });
-
       }
-
     
-
       // 3. Project Cards Read More
-
       window.toggleReadMore = function (id, event) {
-
         var d = document.getElementById(id + "-dots");
-
         var m = document.getElementById(id + "-more");
-
         var btn = event.currentTarget;
-
     
-
         if (m.style.display === "inline") {
-
           d.style.display = "inline";
-
           m.style.display = "none";
-
           btn.innerHTML = "Read More";
-
         } else {
-
           d.style.display = "none";
-
           m.style.display = "inline";
-
           btn.innerHTML = "Read Less";
-
         }
-
       };
-
     
-
       // 4. Masters Read More
-
       window.toggleMasters = function () {
-
         const more = document.getElementById("m-more");
-
         const btn = document.getElementById("m-readBtn");
-
-    
-
-        // Use computed style to check visibility reliably
-
         const isHidden = window.getComputedStyle(more).display === "none";
-
-
-
+    
         if (isHidden) {
-
           more.style.display = "block";
-
           btn.innerText = "Read Less";
-
         } else {
-
           more.style.display = "none";
-
           btn.innerText = "Read More";
-
         }
-
       };
-
     
-
       // 5. Scroll Animation
-
       function animateTopics() {
-
         const topics = document.querySelectorAll(".topic");
-
         const triggerBottom = window.innerHeight * 0.9;
-
     
-
         topics.forEach(topic => {
-
           if (topic.getBoundingClientRect().top < triggerBottom) {
-
             topic.classList.add("visible");
-
           }
-
         });
-
       }
-
     
-
       window.addEventListener("scroll", animateTopics);
-
       animateTopics();
-
     
-
       // 6. Comment Box
-
       window.submitComment = function () {
-
         const comment = document.getElementById("commentBox").value.trim();
-
         if (comment) {
-
           document.getElementById("commentText").innerText = comment;
-
           document.getElementById("commentDisplay").style.display = "block";
-
           document.getElementById("commentBox").value = "";
-
         }
-
       };
-
     
-
       window.closeComment = function () {
-
         document.getElementById("commentBox").value = "";
-
         document.getElementById("commentDisplay").style.display = "none";
-
       };
-
     
-
+      /* ========= FIXED PUBLICATION SECTION ========= */
+    
+      window.toggleAbstract = function (btn) {
+        const card = btn.closest(".pub-card");
+        const abstract = card.querySelector(".abstract");
+        const citation = card.querySelector(".citation");
+    
+        if (citation) citation.style.display = "none";
+    
+        if (abstract.style.display === "block") {
+          abstract.style.display = "none";
+          btn.textContent = "Keywords";
+        } else {
+          abstract.style.display = "block";
+          btn.textContent = "Hide Keywords";
+        }
+      };
+    
+      window.toggleCite = function (btn) {
+        const card = btn.closest(".pub-card");
+        const citation = card.querySelector(".citation");
+        const abstract = card.querySelector(".abstract");
+    
+        if (abstract) abstract.style.display = "none";
+    
+        if (citation.style.display === "block") {
+          citation.style.display = "none";
+          btn.textContent = "Cite";
+        } else {
+          citation.style.display = "block";
+          btn.textContent = "Hide Cite";
+        }
+      };
+    
+      const pubCards = document.querySelectorAll(".pub-card");
+      function revealPublications() {
+        const triggerBottom = window.innerHeight * 0.85;
+    
+        pubCards.forEach((card, index) => {
+          const cardTop = card.getBoundingClientRect().top;
+          if (cardTop < triggerBottom && !card.classList.contains("fade-in")) {
+            setTimeout(() => {
+              card.style.opacity = 1;
+              card.style.transform = "translateY(0)";
+              card.style.transition = "all 0.6s ease";
+              card.classList.add("fade-in");
+            }, index * 200);
+          }
+        });
+      }
+    
+      window.addEventListener("scroll", revealPublications);
+      window.addEventListener("load", revealPublications);
+    
     });
-
     </script>
+    
     <script>
     function toggleBachelor() {
-        const more = document.getElementById("b-more");
-        const btn = document.getElementById("b-readBtn");
+      const more = document.getElementById("b-more");
+      const btn = document.getElementById("b-readBtn");
     
-        if (more.style.display === "none" || more.style.display === "") {
-            more.style.display = "block";
-            btn.innerText = "Read Less";
-        } else {
-            more.style.display = "none";
-            btn.innerText = "Read More";
-        }
+      if (more.style.display === "none" || more.style.display === "") {
+        more.style.display = "block";
+        btn.innerText = "Read Less";
+      } else {
+        more.style.display = "none";
+        btn.innerText = "Read More";
+      }
     }
     </script>
-
+    
     <script>
     const cards = document.querySelectorAll("#projects .card");
     
@@ -1271,15 +1197,13 @@
         const cardTop = card.getBoundingClientRect().top;
     
         if (cardTop < triggerBottom && !card.classList.contains("fade-in-left") && !card.classList.contains("fade-in-right")) {
-          
-          // Add a slight offset left/right before fading in
           card.style.transform = index % 2 === 0 
             ? "translateY(30px) translateX(-50px)" 
             : "translateY(30px) translateX(50px)";
     
           setTimeout(() => {
             card.classList.add(index % 2 === 0 ? "fade-in-left" : "fade-in-right");
-          }, index * 150); // 150ms stagger
+          }, index * 150);
         }
       });
     }
@@ -1287,49 +1211,16 @@
     window.addEventListener("scroll", revealCardsStaggeredSlide);
     window.addEventListener("load", revealCardsStaggeredSlide);
     </script>
+    
     <script>
     window.addEventListener("load", () => {
       const socials = document.querySelectorAll("#hero-socials a");
       socials.forEach((social, index) => {
         setTimeout(() => {
           social.classList.add("fade-in-social");
-        }, index * 300); // 300ms stagger between each icon
+        }, index * 300);
       });
     });
-    </script>
-    <script>
-        // Show/hide abstract
-        function toggleAbstract(button) {
-          const abstract = button.nextElementSibling;
-          if (abstract.style.display === "none") {
-            abstract.style.display = "block";
-            button.textContent = "Show Less";
-          } else {
-            abstract.style.display = "none";
-            button.textContent = "Show More";
-          }
-        }
-        
-        // Staggered fade-in animation on scroll
-        const pubCards = document.querySelectorAll(".pub-card");
-        function revealPublications() {
-          const triggerBottom = window.innerHeight * 0.85;
-        
-          pubCards.forEach((card, index) => {
-            const cardTop = card.getBoundingClientRect().top;
-            if (cardTop < triggerBottom && !card.classList.contains("fade-in")) {
-              setTimeout(() => {
-                card.style.opacity = 1;
-                card.style.transform = "translateY(0)";
-                card.style.transition = "all 0.6s ease";
-                card.classList.add("fade-in");
-              }, index * 200); // stagger 200ms
-            }
-          });
-        }
-        
-        window.addEventListener("scroll", revealPublications);
-        window.addEventListener("load", revealPublications);
     </script>
 
 
