@@ -235,50 +235,6 @@
 
     /* Utility */
     #more, #m-more, #b-more { display: none; }
-    
-    /* Styles the clickable header */
-    details summary {
-    cursor: pointer;
-    padding: 10px;
-    background-color: #FFC107; /* Your Yellow */
-    color: #000;
-    font-weight: bold;
-    border-radius: 5px;
-    list-style: none; /* Removes default arrow */
-    text-align: center;
-    transition: background 0.3s ease;
-    outline: none;
-    margin-bottom: 15px;
-  }
-
-  details summary:hover {
-    background-color: #e0a800; /* Slightly darker on hover */
-  }
-
-  /* Custom arrow using pseudo-element */
-  details summary::before {
-    content: "➕ ";
-  }
-
-  details[open] summary::before {
-    content: "➖ ";
-  }
-
-  /* Styling for the hidden content cards */
-  .card {
-    border-left: 3px solid #FFC107;
-    background: #fff9e6; /* Very light yellow tint */
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 0 5px 5px 0;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-  }
-
-  .card h3 {
-    margin-top: 0;
-    font-size: 1.1em;
-    color: #333;
-  }
 </style>
 </head>
 
