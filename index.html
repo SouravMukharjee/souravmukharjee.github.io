@@ -240,6 +240,54 @@
       opacity: 1;
     }
 
+    .contact-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    
+    .contact-table td {
+      padding: 12px 10px;
+      vertical-align: middle;
+    }
+    
+    .contact-table a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+    
+    .contact-table a:hover {
+      text-decoration: underline;
+    }
+    
+    .contact-icon {
+      width: 28px;
+      height: 28px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    
+    .contact-icon:hover {
+      transform: scale(1.2);
+      filter: brightness(1.2);
+    }
+    
+    .icon-cell {
+      width: 40px;
+      text-align: center;
+    }
+    
+    /* Row animation */
+    .contact-row {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: all 0.6s ease;
+    }
+    
+    .contact-row.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
 
 </style>
 
@@ -915,33 +963,54 @@
 
         <h2>🌟 Let's Connect</h2>
 
-        <div class="card" style="display:flex; justify-content:center; gap:22px; flex-wrap:wrap;">
+        <div class="card contact-table-card" style="margin-top:40px; padding:20px; border-radius:12px; background:#111827; color:#fff; max-width:700px; margin-left:auto; margin-right:auto;">
         
-          <a href="mailto:souravmu@uwasa.fi" title="Email" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="contact-icon" alt="Email">
-          </a>
+          <h3 style="color:#38bdf8; text-align:center; margin-bottom:20px;">📇 Contact & Profile</h3>
         
-          <a href="https://github.com/SouravMukharjee" title="GitHub" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" class="contact-icon" alt="GitHub">
-          </a>
+          <table class="contact-table" style="width:100%; border-collapse:collapse;">
         
-          <a href="https://www.linkedin.com/in/sourav-mukharjee/" title="LinkedIn" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="contact-icon" alt="LinkedIn">
-          </a>
+            <tr class="contact-row">
+              <td class="icon-cell"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" class="contact-icon"></td>
+              <td>E-mail</td>
+              <td>
+                souravmu@uwasa.com<br>
+                x8977494@student.uwasa.fi
+              </td>
+            </tr>
         
-          <a href="https://orcid.org/0009-0000-4727-711X" title="ORCID" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" class="contact-icon" alt="ORCID">
-          </a>
+            <tr class="contact-row">
+              <td class="icon-cell"><img src="https://cdn-icons-png.flaticon.com/512/15/15874.png" alt="Phone" class="contact-icon"></td>
+              <td>Mobile</td>
+              <td>+358 41 5****06</td>
+            </tr>
         
-          <a href="tel:+358415000006" title="Call" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/15/15874.png" class="contact-icon" alt="Phone">
-          </a>
+            <tr class="contact-row">
+              <td class="icon-cell"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="contact-icon"></td>
+              <td>LinkedIn</td>
+              <td><a href="https://www.linkedin.com/in/sourav-mukharjee/" target="_blank">https://www.linkedin.com/in/sourav-mukharjee/</a></td>
+            </tr>
         
-          <span title="Vaasa, Finland">
-            <img src="https://cdn-icons-png.flaticon.com/512/3179/3179068.png" class="contact-icon" alt="Location">
-          </span>
+            <tr class="contact-row">
+              <td class="icon-cell"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="contact-icon"></td>
+              <td>GitHub</td>
+              <td><a href="https://github.com/SouravMukharjee" target="_blank">https://github.com/SouravMukharjee</a></td>
+            </tr>
         
+            <tr class="contact-row">
+              <td class="icon-cell"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="ORCID" class="contact-icon"></td>
+              <td>ORCID</td>
+              <td><a href="https://orcid.org/0009-0000-4727-711X" target="_blank">https://orcid.org/0009-0000-4727-711X</a></td>
+            </tr>
+        
+            <tr class="contact-row">
+              <td class="icon-cell"><img src="https://cdn-icons-png.flaticon.com/512/3179/3179068.png" alt="Location" class="contact-icon"></td>
+              <td>Current Address</td>
+              <td>Vaasa-65100, Finland</td>
+            </tr>
+        
+          </table>
         </div>
+
 
         <div class="card" style="margin-top:25px; display:flex; flex-direction:column; gap:10px;">
 
@@ -1203,6 +1272,26 @@
         }, index * 300);
       });
     });
+
+    </script>
+    <script>
+    function revealContactRows() {
+      const rows = document.querySelectorAll(".contact-row");
+      const triggerBottom = window.innerHeight * 0.9;
+    
+      rows.forEach((row, index) => {
+        const rowTop = row.getBoundingClientRect().top;
+    
+        if (rowTop < triggerBottom && !row.classList.contains("visible")) {
+          setTimeout(() => {
+            row.classList.add("visible");
+          }, index * 150); // stagger animation
+        }
+      });
+    }
+    
+    window.addEventListener("scroll", revealContactRows);
+    window.addEventListener("load", revealContactRows);
     </script>
 
 
