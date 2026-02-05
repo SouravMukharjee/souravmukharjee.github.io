@@ -235,6 +235,50 @@
 
     /* Utility */
     #more, #m-more, #b-more { display: none; }
+    
+    /* Styles the clickable header */
+    details summary {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #FFC107; /* Your Yellow */
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+    list-style: none; /* Removes default arrow */
+    text-align: center;
+    transition: background 0.3s ease;
+    outline: none;
+    margin-bottom: 15px;
+  }
+
+  details summary:hover {
+    background-color: #e0a800; /* Slightly darker on hover */
+  }
+
+  /* Custom arrow using pseudo-element */
+  details summary::before {
+    content: "➕ ";
+  }
+
+  details[open] summary::before {
+    content: "➖ ";
+  }
+
+  /* Styling for the hidden content cards */
+  .card {
+    border-left: 3px solid #FFC107;
+    background: #fff9e6; /* Very light yellow tint */
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  }
+
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.1em;
+    color: #333;
+  }
 </style>
 </head>
 
@@ -667,41 +711,46 @@
     
       <!-- New Experience (visible by default) -->
       <div class="card">
-        <h3>Full-Time Doctoral Researcher – University of Vaasa</h3>
-        <p><em>Finance and Financial Accounting Research Group, University of Vaasa | Jan 2026 – Present</em></p>
+        <h3>Full-Time Doctoral Researcher <a href="https://www.uwasa.fi/fi/henkilo/2962537" target="_blank" rel="noopener" style="color: #FFC107; text-decoration: none; font-weight: bold;"> 🏛️ University of Vaasa Profile </a></h3>
+        <p><em>Finance and Financial Accounting Research Group | Jan 2026 – Present</em></p>
         <ul>
-          <li>Conducting doctoral research in finance supported by the <a href="https://www.lsr.fi/en/" target="_blank">Foundation for Economic Education (Liikesivistysrahasto, LSR)</a>, a Finnish economic foundation providing research grants for business and economics. :contentReference[oaicite:2]{index=2}</li>
-          <li>Engaged in advanced research projects within the Finance and Financial Accounting group at the University of Vaasa. :contentReference[oaicite:3]{index=3}</li>
-          <li>Collaborating with academic partners on empirical and theoretical finance topics.</li>
-          <li>University of Vaasa email: <strong>your.email@uwasa.fi</strong></li>
+          <li style="margin-bottom: 10px; line-height: 1.6;">
+            Conducting <span style="color: #FFC107; font-weight: bold;">doctoral research in FinTech</span>; 
+            supported by the 
+            <a href="https://www.lsr.fi/en/" target="_blank" style="color: #FFC107; font-weight: bold; text-decoration: underline;">
+                Foundation for Economic Education (Liikesivistysrahasto, LSR)
+            </a>
+          </li>
+          <li>Engaged in advanced research and puiblicaiton</li>
+          <li>Collaborating with academic partners on empirical and theoretical finance topics</li>
         </ul>
       </div>
     
       <!-- Existing content inside “show more” -->
-      <details>
-        <summary>Show More Work Experience</summary>
-    
-        <div class="card">
-          <h3>Senior Officer – Data Analytics & MIS</h3>
-          <p><em>Chartered Life Insurance Company Ltd | Aug 2022 – May 2023</em></p>
-          <ul>
-            <li>Visualized data for business projections and trends.</li>
-            <li>Analyzed monthly claims data and facilitated strategic development.</li>
-            <li>Created dashboards and automated reports using <strong>Power BI, Python, Excel</strong>.</li>
-          </ul>
-        </div>
-    
-        <div class="card">
-          <h3>Trainee Officer (MTO) – Data Analytics & MIS</h3>
-          <p><em>Chartered Life Insurance Company Ltd | Feb 2022 – Jul 2022</em></p>
-          <ul>
-            <li>Maintained and updated customer database systems.</li>
-            <li>Conducted AI-assisted reinsurance settlements.</li>
-            <li>Collaborated with J.B. Boda Group and stakeholders for business development across Thailand & India.</li>
-          </ul>
-        </div>
-    
-      </details>
+        <details>
+          <summary>Show More Work Experience</summary>
+        
+          <div class="card">
+            <h3>Senior Officer – Data Analytics & MIS</h3>
+            <p><em>Chartered Life Insurance Company Ltd | Aug 2022 – May 2023</em></p>
+            <ul>
+              <li>Visualized data for business projections and trends.</li>
+              <li>Analyzed monthly claims data and facilitated strategic development.</li>
+              <li>Created dashboards and automated reports using <strong>Power BI, Python, Excel</strong>.</li>
+            </ul>
+          </div>
+        
+          <div class="card">
+            <h3>Trainee Officer (MTO) – Data Analytics & MIS</h3>
+            <p><em>Chartered Life Insurance Company Ltd | Feb 2022 – Jul 2022</em></p>
+            <ul>
+              <li>Maintained and updated customer database systems.</li>
+              <li>Conducted AI-assisted reinsurance settlements.</li>
+              <li>Collaborated with J.B. Boda Group and stakeholders for business development across Thailand & India.</li>
+            </ul>
+          </div>
+        
+        </details>
     
     </section>
 
